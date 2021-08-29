@@ -1,34 +1,61 @@
-<home>
+<html>
     <head>
         <title> <%= title %> </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel = "stylesheet" href="/css/home.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>TODO APP</h1>
-        <form action="post">
-            <div>
-                <label for = "description">DESCRIPTION</label>
-                <input type="text" id="description" placeholder="What do you need to do?" required>
-            </div>
-            <div>
-                <label for="category">CATEGORTY</label>
-                <select id="category" placeholder="Choose A Category" required>
-                    <option value="" disabled selected hidden>Choose a Category</option>
-                    <option value="">Personal</option>
-                    <option value="">Work</option>
-                    <option value="">School</option>
-                    <option value="">Cleaning</option>
-                    <option value="">Other</option>
-                </select>
-                <label for="date">DUE DATE</label>
-                <input type="date" id="date" required>
-            </div>
-            <div>
-                <button>ADD TASK</button>
-                <button>DELETE TASKS</button>
-            </div>
-        </form>
-        <section id="display">
-
-        </section>
+        <main>
+            <h1 class="bottom">TODO APP</h1>
+            <form action="post">
+                <div class="bottom" id="first">
+                    <label for = "description">DESCRIPTION</label>
+                    <input type="text" id="description" placeholder="What do you need to do?" required>
+                </div>
+                <div class="modify">
+                    <div class="modifyinner bottom" id="second">
+                        <label for="category">CATEGORTY</label>
+                        <select id="category" placeholder="Choose A Category" required>
+                        <option value="" disabled selected hidden>Choose a Category</option>
+                        <option value="">Personal</option>
+                        <option value="">Work</option>
+                        <option value="">School</option>
+                        <option value="">Cleaning</option>
+                        <option value="">Other</option>
+                        </select>
+                    </div>
+                    <div class="modifyinner bottom">
+                        <label for="date">DUE DATE</label>
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
+                <div class="modify">
+                    <div class="btn" id="btn1">
+                        <button id="button1"><i class="fas fa-plus"></i>ADD TASK</button>
+                    </div>
+                    <div  class="btn" id="btn2">
+                        <button id="button2"><i class="fas fa-trash"></i>DELETE TASKS</button>
+                    </div>
+                </div>
+            </form>
+            <section id="display">
+                <% for(let i of todo_list) { %> 
+                    <div class="container bottom top">
+                        <div>
+                            <input  type="checkbox">
+                        </div>
+                        <div>
+                            <p><%= i.description %></p>
+                            <p><i class="fas fa-calendar-alt"></i><%= i.date %></p>
+                        </div>
+                        <div class="work">
+                            <span class="text"><%= i.category %></span>
+                        </div>
+                    </div>
+                <% } %>
+            </section>
+        </main>
     </body>
-</home>
+    <script type="text/javascript" src="/js/main.js"></script>
+</html>
