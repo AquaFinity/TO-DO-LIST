@@ -5,6 +5,8 @@ const homeController = require('../controllers/home_controller');
 
 router.get('/',homeController.home);
 
+router.post('/create',homeController.create);
+
 console.log('Router loaded');
 
 module.exports = router;

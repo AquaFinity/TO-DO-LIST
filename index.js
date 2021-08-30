@@ -1,10 +1,12 @@
 const express = require('express');
-const app = express();
 const port = 8000;
 
+const db = require('./config/mongoose');
+const Todo = require('./models/todo');
 
+const app = express();
 // use express router
-
+app.use(express.urlencoded());
 app.use('/',require('./routes'))
 
 //setup the view engine

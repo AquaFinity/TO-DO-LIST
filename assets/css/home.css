@@ -1,6 +1,5 @@
 html, body {
-    min-height: 100%;
-    margin: 5px;
+    margin: 0px;
 }
 body{
     display: flex;
