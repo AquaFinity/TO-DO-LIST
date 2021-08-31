@@ -17,7 +17,7 @@ $(document).ready(function(){
     function sendResponse(item){
         $.ajax({
             type: 'post',
-            url: '/delete-contact',
+            url: '/',
             data: {item:item},
             success: function(data){
                 location.reload();

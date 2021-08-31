@@ -46,7 +46,7 @@ module.exports.delete = function(req,res){
             console.log("Error occured in deleting data from database")
             return;
         }
-        res.redirect('back');
+        return res.json(data);
     });
 }
 
