@@ -49,6 +49,10 @@ i{
 #button2{
     background-color: rgb(243, 99, 99);
 }
+#button2 a{
+    text-decoration: none;
+    color: white;
+}
 input,select{
     border: none;
     width: 95%;

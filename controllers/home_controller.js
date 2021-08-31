@@ -1,33 +1,5 @@
 const Todo = require("../models/todo");
 
-
-var todoList = [
-    {
-        description: "Let's Make a TO-DO List",
-        category: "Personal",
-        date: "29/8/2021"
-    },
-    {
-        description: "Bring Vegetables from Market",
-        category: "School",
-        date: "29/8/2021"
-    },
-    {
-        description: "Finish my Assignment",
-        category: "Work",
-        date: "29/8/2021"
-    },
-    {
-        description: "Finish my Assignment",
-        category: "Cleaning",
-        date: "29/8/2021"
-    },
-    {
-        description: "Finish my Assignment",
-        category: "Other",
-        date: "29/8/2021"
-    }
-]
 module.exports.create = function(req,res){
     //console.log(req.body);
     /*
@@ -64,3 +36,17 @@ module.exports.home = function(req,res){
         });
     })
 }
+module.exports.delete = function(req,res){
+    var items = [];
+    for(var key in  req.body){
+        items = req.body[key];
+    }
+    Todo.remove({_id:{$in:items}},function(err,data){
+        if(err){
+            console.log("Error occured in deleting data from database")
+            return;
+        }
+        res.redirect('back');
+    });
+}
+
